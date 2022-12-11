@@ -5,6 +5,9 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 const app = express();
+const app = require('./app')
+
+const port = process.env.PORT || 3000
 
 app.set('view engine', 'ejs');
 
@@ -134,6 +137,11 @@ app.get("/:customListName",function (req,res) {
 
 app.get("/about", function(req, res){
   res.render("about");
+});
+
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
 });
 
 // app.listen(3000, function() {
